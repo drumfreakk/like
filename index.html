@@ -28,6 +28,8 @@ SOFTWARE.
 
 <title>Upvote</title>
 
+<link rel="stylesheet" href="styles/main.css">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 </head>
@@ -42,13 +44,30 @@ SOFTWARE.
 	up/down is where the votes will come
  -->
 
-<div data-toggle="tooltip" title="By voting, you agree that your IP address is saved to record your vote." id="upv" onclick="vote('yes','up')">Upvote</div>
+<div id="vote">
 
-<p id="up"></p>
 
-<div data-toggle="tooltip" title="By voting, you agree that your IP address is saved to record your vote." id="downv" onclick="vote('yes','down')">Downvote</div>
+<div class="vt" id="u" onclick="vote('yes','up')" data-toggle="tooltip" title="By voting, you agree that your IP address is saved to record your vote.">
 
-<p id="down"></p>
+
+<div class="v" id="upv" >Upvote</div>
+
+<p class="vs" id="up"></p>
+
+
+</div>
+
+<div data-toggle="tooltip" title="By voting, you agree that your IP address is saved to record your vote." class="vt" id="d" onclick="vote('yes','down')">
+
+
+<div class="v" id="downv" >Downvote</div>
+
+<p class="vs" id="down"></p>
+
+
+</div>
+
+</div>
 
 <script>
 

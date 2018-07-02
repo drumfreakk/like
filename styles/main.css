@@ -1,0 +1,43 @@
+#vote{
+	/*border: 1px solid black;*/
+	text-align: center;
+}
+
+.vt{
+	display:inline-block;
+}
+
+#u{
+	margin-right:10px;
+	/*border: 1px solid red;*/
+}
+
+#d{
+	/*border: 1px solid blue;*/
+}
+
+.v{
+	/*border: 1px solid green;*/
+}
+
+.vs{
+	/*border: 1px solid yellow;*/
+}
+
+#upv{
+
+}
+
+#up{
+
+}
+
+#downv{
+
+}
+
+#down{
+
+}	
+
+
