@@ -1,5 +1,4 @@
 #vote{
-	/*border: 1px solid black;*/
 	text-align: center;
 }
 
@@ -16,7 +15,6 @@
 #u{
 	margin-right:10px;
 	color: orangered;
-	/*border: 1px solid red;*/
 }
 
 #u:hover{
@@ -25,34 +23,9 @@
 
 #d{
 	color: mediumblue;
-	/*border: 1px solid blue;*/
 }
 
 #d:hover{
 	box-shadow: 0 0 10px mediumblue;
 }
-
-.v{
-	/*border: 1px solid green;*/
-}
-
-.vs{
-	/*border: 1px solid yellow;*/
-}
-
-#upv{
-}
-
-#up{
-
-}
-
-#downv{
-
-}
-
-#down{
-
-}	
-
 
