@@ -7,15 +7,29 @@
 	display:inline-block;
 	border: 2px solid silver;
 	border-radius: 5px;
+	background-color: silver;
+	padding: 5 5 5 5px;
+
+	box-shadow: 4px 4px 1px grey;
 }
 
 #u{
 	margin-right:10px;
+	color: orangered;
 	/*border: 1px solid red;*/
 }
 
+#u:hover{
+	box-shadow: 0 0 10px orangered;
+}
+
 #d{
+	color: mediumblue;
 	/*border: 1px solid blue;*/
+}
+
+#d:hover{
+	box-shadow: 0 0 10px mediumblue;
 }
 
 .v{
