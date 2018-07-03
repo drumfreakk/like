@@ -28,7 +28,7 @@ SOFTWARE.
 //	variables for the database
 $servername = "localhost";
 $username = "wobsite";
-$password = "hernk";
+$password = "pswd";
 $dbname = "votes";
 
 //create connection with db
