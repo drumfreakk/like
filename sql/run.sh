@@ -25,4 +25,4 @@ SOFTWARE.
 
 '
 
-mysql -u wobsite -phernk < reset.sql
+mysql -u wobsite -ppswd < reset.sql
