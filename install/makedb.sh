@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd $PWD
+
+sudo sed -i "s/pswd/$1/g" ./createdb.sql
+sudo sed -i "s/pswd/$1/g" ../sql/run.sh
+
 echo "Enter the root password for mysql"
 
 mysql -u root -p < ./createdb.sql
