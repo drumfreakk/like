@@ -25,4 +25,4 @@ SOFTWARE.
 
 '
 
-mysql -u wobsite -ppassword < reset.sql
+mysql -u wobsite -pwachtwoord < reset.sql
