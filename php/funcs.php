@@ -34,7 +34,7 @@ $dbname = "votes";
 //create connection with db
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error . " Please contact the server administrator with this error tho");
+    die("There was an error");
 }
 
 //	make input safe for mysql and remove dots from ips
@@ -60,7 +60,7 @@ function insert($db, $val){
 	$sql = 'INSERT INTO ' . $db . '(ip) VALUES (' . $val . ')';
 			
 	if (!($conn->query($sql) === TRUE)) {
-		echo "Error: " . $sql . "<br>" . $conn->error . " Please contact the server administrator with this error tho";
+		echo "There was an error.";
 	}
 }
 
@@ -92,12 +92,12 @@ function delete($db, $val){
 	global $conn;
 	$sql = "DELETE FROM " . $db . " WHERE ip=" . $val;
 	if (!($conn->query($sql) === TRUE)) {
-		echo "Error deleting record: " . $conn->error;
+		echo "There was an error";
 	}
 }
 
 
-// 	get vote or get
+// 	get vote
 $vote = $_POST['vt'];
 
 

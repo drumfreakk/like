@@ -24,13 +24,13 @@ SOFTWARE.
 */
 
 function vote(vt, main){
-	
-	// 	Variables: 
+
+	// 	Variables:
 	// 	vt = "yes" or "no", wether you vote or not
 	// 	main = "up" or "down", wether you vote up or down
 	// 	other = "down" or "up", the oposite of main
-	var other; 
-			
+	var other;
+
 	// 	make other the oposite of main
 	if(main == "up"){
 		other = "down";
@@ -41,13 +41,13 @@ function vote(vt, main){
 	// 	start the ajax call
 	$.ajax({
 			// 	call upvote.php or downvote.php with vt as argument (vote or just get)
-			url:"php/" + main + "vote.php", 
-		    type: "POST", 
+		    url:"php/" + main + "vote.php",
+		    type: "POST",
 		    data: {vt: vt},
 		   	success:function(result){
-			
+
 				// 	startM = position of "m" in result if it exists
-				var startM;		   		
+				var startM;
 
 				// 	Does result include "m"? if so, do this
 				if(result.includes("m")){
@@ -62,17 +62,17 @@ function vote(vt, main){
 					//	0 = start of result and starM = the end of the votes that you voted for
 					// 	then set that as the votes for main
 					document.getElementById(main).innerHTML = result.slice(0, startM);
-					 
-				} else {
-					//	if result doesnt include "m", set main as result
-					document.getElementById(main).innerHTML = result;
+
 				}
-	
+// else {
+					//	if result doesnt include "m", set main as result
+				//	document.getElementById(main).innerHTML = result;
+				//}
+
 				// if it was vote and not just get, set the button for main to "Voted!"
 				if(vt == "yes"){
 					document.getElementById(main + "v").innerHTML = "Voted!";
 				}
-				
 		    }
 		});
 }
