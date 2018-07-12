@@ -64,10 +64,6 @@ function vote(vt, main){
 					document.getElementById(main).innerHTML = result.slice(0, startM);
 
 				}
-// else {
-					//	if result doesnt include "m", set main as result
-				//	document.getElementById(main).innerHTML = result;
-				//}
 
 				// if it was vote and not just get, set the button for main to "Voted!"
 				if(vt == "yes"){
