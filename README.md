@@ -1,10 +1,10 @@
 # Like/Dislike Counter
 
-**About**
+## About
 
 A like/dislike counter for websites in javascript, php and mysql
 
-**Instalation**
+### Instalation
 
 1. Put everything in this layout on a webserver (i.e. an apache server)
 1. Make install/install.sh executable and execute, with the password you want for the mysql account, i.e. ./install.sh password123
