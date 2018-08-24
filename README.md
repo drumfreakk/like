@@ -15,4 +15,4 @@ A like/dislike counter for websites in javascript, php and mysql
 1. (If you want, then sql/del.sh will remove all the likes/dislikes.)
 
 
-![alt text](https://github.com/kippenjongen/tst/kiptrans.png)
+![alt text](https://github.com/kippenjongen/tst/blob/master/kiptrans.png)
