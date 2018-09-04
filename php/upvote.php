@@ -30,7 +30,6 @@ include "funcs.php";
 
 //	if it was vote not get, do this
 if ($vote == 'yes') {
-
 	//	if the current ip is in the up db, remove it from there
 	$query = selectW("up", $ip);
 	if (($query !== FALSE) && ($query->num_rows > 0)) {

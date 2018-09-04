@@ -94,6 +94,7 @@ function select($db){
 function delete($db, $val){
 	global $conn;
 	$sql = "DELETE FROM " . $db . " WHERE ip=" . $val;
+	return $conn->query($sql);
 }
 
 
