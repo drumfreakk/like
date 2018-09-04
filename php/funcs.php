@@ -25,6 +25,9 @@ SOFTWARE.
 
 */
 
+//TODO: add debugging mode
+
+
 //	variables for the database
 $servername = "localhost";
 $username = "wobsite";
@@ -51,8 +54,8 @@ function safe($in){
 }
 
 
-//	insert data into a db
-//	db is the database
+//	insert data into a table
+//	db is the table
 //	val is the value
 function insert($db, $val){
 	global $conn;	
@@ -65,8 +68,8 @@ function insert($db, $val){
 }
 
 
-//	select data from database with params,
-//	db is the database
+//	select data from table with params,
+//	db is the table
 //	val is the value that it searches for
 function selectW($db, $val){
 	global $conn;
@@ -75,8 +78,8 @@ function selectW($db, $val){
 }
 
 
-// select all data from a database
-// db is the database
+// select all data from a table
+// db is the table
 function select($db){
 	global $conn;
 	$sql = "SELECT ip FROM " . $db;
@@ -85,15 +88,12 @@ function select($db){
 }
 
 
-//	delete data from a database
-//	db is the database
+//	delete data from a table
+//	db is the table
 // 	val is the data to delete
 function delete($db, $val){
 	global $conn;
 	$sql = "DELETE FROM " . $db . " WHERE ip=" . $val;
-	if (!($conn->query($sql) === TRUE)) {
-		echo "There was an error";
-	}
 }
 
 
@@ -104,8 +104,8 @@ $vote = $_POST['vt'];
 //	get the clients ip, and make it safe for mysql
 $ip = safe($_SERVER['REMOTE_ADDR']);
 
-//	get the total votes in database
-//	db is the database
+//	get the total votes in table
+//	db is the table
 function give($db){
 	// 	current is amount of entries listed
 	$current = 0;

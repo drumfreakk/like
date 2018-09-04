@@ -32,17 +32,15 @@ include "funcs.php";
 if ($vote == 'yes') {
 
 	//	if the current ip is in the up db, remove it from there
-	if (selectW("up", $ip)->num_rows > 0) {
+	$query = selectW("up", $ip);
+	if (($query !== FALSE) && ($query->num_rows > 0)) {
 		delete("up", "'" . $ip . "'");	
 
 	} else {
 		//	otherwise, insert it into the up db
 		insert("up", $ip);
 
-		// and if it is in the down db, remove it from there
-		if (selectW("down", $ip)->num_rows > 0){
-			delete("down", "'" . $ip . "'");
-		}
+		delete("down", "'" . $ip . "'");
 	}
 
 }
