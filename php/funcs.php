@@ -25,8 +25,7 @@ SOFTWARE.
 
 */
 
-//TODO: add debugging mode
-
+$debugmode = true;
 
 //	variables for the database
 $servername = "localhost";
@@ -97,6 +96,19 @@ function delete($db, $val){
 	return $conn->query($sql);
 }
 
+
+function logme($tekst) {
+	global $debugmode;
+	
+	if($debugmode){
+		global $conn;
+		$sql = "insert into log (tekst) values (?)";
+        $result = $conn->prepare($sql);
+        $result->bind_param('s', $tekst);
+        $result->execute();
+		$result->close(); 
+	}
+}
 
 // 	get vote
 $vote = $_POST['vt'];
