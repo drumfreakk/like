@@ -25,7 +25,7 @@ SOFTWARE.
 
 */
 
-$debugmode = true;
+$debugmode = false;
 
 //	variables for the database
 $servername = "localhost";
@@ -36,7 +36,8 @@ $dbname = "votes";
 //create connection with db
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("There was an error");
+	logme("Connect Error: " . $conn->connect_error);
+    die();
 }
 
 //	make input safe for mysql and remove dots from ips
@@ -60,9 +61,10 @@ function insert($db, $val){
 	global $conn;	
 	
 	$sql = 'INSERT INTO ' . $db . '(ip) VALUES (' . $val . ')';
+	logme("Inserted");
 			
 	if (!($conn->query($sql) === TRUE)) {
-		echo "There was an error.";
+		logme("Insert Into Error: " . $conn->query($sql));
 	}
 }
 
