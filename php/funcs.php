@@ -25,7 +25,7 @@ SOFTWARE.
 
 */
 
-$debugmode = false;
+$debugmode = true;
 
 //	variables for the database
 $servername = "localhost";
@@ -35,10 +35,24 @@ $dbname = "votes";
 
 //create connection with db
 $conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-	logme("Connect Error: " . $conn->connect_error);
+$e = $conn->connect_error;
+if ($e) {
+	logme("Connect Error: " . $e);
     die();
 }
+
+
+function sqlE($sql, $val){
+	global $conn;
+
+	$result = $conn->prepare($sql);
+    $result->bind_param('s', $val);
+    $e = $result->execute();
+	$result->close();
+
+	return $e;
+}
+
 
 //	make input safe for mysql and remove dots from ips
 function safe($in){
@@ -49,6 +63,7 @@ function safe($in){
 	$in = str_replace("UPDATE", "", $in);
 	$in = str_replace("INSERT", "", $in);
 	$in = str_replace("TRUNCATE", "", $in);
+	$in = str_replace("--", "", $in);
 	return $in;
 
 }
@@ -60,11 +75,11 @@ function safe($in){
 function insert($db, $val){
 	global $conn;	
 	
-	$sql = 'INSERT INTO ' . $db . '(ip) VALUES (' . $val . ')';
-	logme("Inserted");
-			
-	if (!($conn->query($sql) === TRUE)) {
-		logme("Insert Into Error: " . $conn->query($sql));
+	$sql = "INSERT INTO " . $db . " (ip) VALUES (?)";
+
+	$e = sqlE($sql, $val);
+	if (!($e === TRUE)) {
+		logme("Insert Into Error: " . $e);
 	}
 }
 
@@ -104,7 +119,7 @@ function logme($tekst) {
 	
 	if($debugmode){
 		global $conn;
-		$sql = "insert into log (tekst) values (?)";
+		$sql = "INSERT INTO log (tekst) VALUES (?)";
         $result = $conn->prepare($sql);
         $result->bind_param('s', $tekst);
         $result->execute();
