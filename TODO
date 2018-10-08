@@ -1,0 +1,1 @@
+TODO: instead of using ip to check wether you have voted for(then you can only vote once from an ip), use a cookie that you set when you vote, and if that cookie is on your machine, then you have voted. 
